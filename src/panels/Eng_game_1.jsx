@@ -5,7 +5,7 @@ import { colors } from '../theme/colors';
 const SHAPES = ['square', 'circle', 'diamond'];
 const COLOR_KEYS = ['red', 'green', 'light_green'];
 
-export const Eng_game = () => {
+export const Eng_game_1 = () => {
   const [score, setScore] = useState(0);
   const [connections, setConnections] = useState([]);
   const [gridItems, setGridItems] = useState([]);
