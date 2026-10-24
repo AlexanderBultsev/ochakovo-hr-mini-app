@@ -17,11 +17,12 @@ export const Home = ({ id, fetchedUser }) => {
         </Group>
       )}
 
-      <Group header={<Header size="s">Navigation Example</Header>}>
+      <Group header={<Header size="s">Navion Example</Header>}>
         <Div>
           <Button stretched size="l" mode="secondary" onClick={() => routeNavigator.push('persik')}>
             Покажите Персика, пожалуйста!
           </Button>
+          <img src='\src\assets\persik.png'></img>
         </Div>
       </Group>
     </Panel>
