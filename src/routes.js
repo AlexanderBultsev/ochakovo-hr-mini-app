@@ -13,6 +13,7 @@ export const DEFAULT_VIEW = 'default_view';
 export const DEFAULT_VIEW_PANELS = {
   HOME: 'home',
   PERSIK: 'persik',
+  YOUR_FUTURE: 'your_future',
 };
 
 export const routes = RoutesConfig.create([

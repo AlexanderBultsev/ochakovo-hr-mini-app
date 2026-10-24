@@ -1,6 +1,11 @@
-import { Panel, PanelHeader, Header, Button, Group, Cell, Div, Avatar } from '@vkontakte/vkui';
+import { Panel, PanelHeader, Header, Button, Group, Cell, Div, Avatar, Card, Box, Text, Title } from '@vkontakte/vkui';
 import { useRouteNavigator } from '@vkontakte/vk-mini-apps-router';
 import PropTypes from 'prop-types';
+import { Button_handmade } from '../components/Button';
+import { colors } from '../theme/colors';
+import { ButtonGroup } from '@vkontakte/vkui';
+import '../styles/Main.css';
+
 
 export const Home = ({ id, fetchedUser }) => {
   const { photo_200, city, first_name, last_name } = { ...fetchedUser };
@@ -8,7 +13,7 @@ export const Home = ({ id, fetchedUser }) => {
 
   return (
     <Panel id={id}>
-      <PanelHeader>Главная</PanelHeader>
+      
       {fetchedUser && (
         <Group header={<Header size="s">User Data Fetched with VK Bridge</Header>}>
           <Cell before={photo_200 && <Avatar src={photo_200} />} subtitle={city?.title}>
@@ -17,14 +22,38 @@ export const Home = ({ id, fetchedUser }) => {
         </Group>
       )}
 
-      <Group header={<Header size="s">Navion Example</Header>}>
-        <Div>
-          <Button stretched size="l" mode="secondary" onClick={() => routeNavigator.push('persik')}>
-            Покажите Персика, пожалуйста!
-          </Button>
-          <img src='\src\assets\persik.png'></img>
-        </Div>
-      </Group>
+      
+        <Card Component="div">
+
+          <Box paddingInline="4xl" paddingBlock="3rem"className='main-top'>
+            
+            <img src='.\src\assets\logo.png'></img>
+            <Box paddingInline="1xl" paddingBlock="5rem"  inlineSize="140px"><Title style={{ color: 'black' }}>Вливайся в <Title style={{ color: colors.red  }}>ОЧАКОВО</Title></Title></Box>
+
+          </Box>
+        </Card>
+
+            <Group separator="hide" className='background-main'>
+              <Box padding="system" paddingInline="4xl" paddingBlock="7rem" >
+                <Button stretched size="l" appearance='accent' className='text_white' onClick={() => routeNavigator.push('your_future')}>
+                  НАЧАТЬ
+                </Button>
+              
+                <Button stretched size="l" appearance='neutral' className='' onClick={() => routeNavigator.push('persik')}>
+                  ВЫЙТИ
+                </Button>
+              </Box>
+                
+            </Group>
+  
+          
+
+
+
+        
+      
+
+          
     </Panel>
   );
 };

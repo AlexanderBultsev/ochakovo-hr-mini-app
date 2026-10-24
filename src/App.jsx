@@ -3,7 +3,7 @@ import bridge from '@vkontakte/vk-bridge';
 import { View, SplitLayout, SplitCol, ScreenSpinner } from '@vkontakte/vkui';
 import { useActiveVkuiLocation } from '@vkontakte/vk-mini-apps-router';
 
-import { Persik, Home } from './panels';
+import { Persik, Home, Your_future } from './panels';
 import { DEFAULT_VIEW_PANELS } from './routes';
 
 export const App = () => {
@@ -11,13 +11,34 @@ export const App = () => {
   const [fetchedUser, setUser] = useState();
   const [popout, setPopout] = useState(<ScreenSpinner />);
 
-  useEffect(() => {
+useEffect(() => {
+    let isMounted = true;
+
+    // Таймаут-предохранитель: если ВК не ответит за 1 сек, убираем спиннер
+    const safetyTimeout = setTimeout(() => {
+      if (isMounted) setPopout(null);
+    }, 1000);
+
     async function fetchData() {
-      const user = await bridge.send('VKWebAppGetUserInfo');
-      setUser(user);
-      setPopout(null);
+      try {
+        const user = await bridge.send('VKWebAppGetUserInfo');
+        if (isMounted) setUser(user);
+      } catch (e) {
+        console.warn('VK Bridge недоступен локально:', e);
+      } finally {
+        if (isMounted) {
+          clearTimeout(safetyTimeout); // Отменяем таймаут, так как ВК ответил
+          setPopout(null);
+        }
+      }
     }
+    
     fetchData();
+
+    return () => {
+      isMounted = false;
+      clearTimeout(safetyTimeout);
+    };
   }, []);
 
   return (
@@ -26,6 +47,7 @@ export const App = () => {
         <View activePanel={activePanel}>
           <Home id="home" fetchedUser={fetchedUser} />
           <Persik id="persik" />
+          <Your_future id="your_future" />
         </View>
       </SplitCol>
       {popout}
