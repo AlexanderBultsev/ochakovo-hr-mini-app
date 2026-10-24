@@ -1,9 +1,7 @@
-import { Panel, PanelHeader, Header, Button, Group, Cell, Div, Avatar, Card, Box, Text, Title } from '@vkontakte/vkui';
+import { Panel, PanelHeader, Header, Button, Group, Cell, Div, Avatar, Card, Box, Text, Title, ButtonGroup } from '@vkontakte/vkui';
 import { useRouteNavigator } from '@vkontakte/vk-mini-apps-router';
 import PropTypes from 'prop-types';
-import { Button_handmade } from '../components/Button';
 import { colors } from '../theme/colors';
-import { ButtonGroup } from '@vkontakte/vkui';
 import '../styles/Main.css';
 
 
@@ -35,13 +33,15 @@ export const Home = ({ id, fetchedUser }) => {
 
             <Group separator="hide" className='background-main'>
               <Box padding="system" paddingInline="4xl" paddingBlock="7rem" >
-                <Button stretched size="l" appearance='accent' className='text_white' onClick={() => routeNavigator.push('your_future')}>
-                  НАЧАТЬ
-                </Button>
-              
-                <Button stretched size="l" appearance='neutral' className='' onClick={() => routeNavigator.push('persik')}>
-                  ВЫЙТИ
-                </Button>
+
+                <ButtonGroup stretched mode="vertical" gap="m">
+                  <Button stretched size="l" appearance='accent' mode='primary'  onClick={() => routeNavigator.push('/your_future')}>
+                    НАЧАТЬ
+                  </Button>
+                  <Button stretched size="l" appearance='accent' mode='outline'  onClick={() => routeNavigator.push('/persik')}>
+                    ВЫЙТИ
+                  </Button>
+                </ButtonGroup>
               </Box>
                 
             </Group>
