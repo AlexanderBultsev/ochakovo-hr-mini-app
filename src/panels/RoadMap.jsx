@@ -3,7 +3,7 @@ import { Panel, Box, Text, Title } from '@vkontakte/vkui';
 import { useRouteNavigator } from '@vkontakte/vk-mini-apps-router';
 import PropTypes from 'prop-types';
 import { CenterModal } from '../components/CenterModal';
-import { GameStart, GameWorkshop, GameLab } from '../games';
+import { Eng_game_1, Eng_game_2,} from '../games';
 import { colors } from '../theme/colors.js';
 import red_flag from '../assets/red flag.png';
 import green_flag from '../assets/green flag.png';
@@ -11,11 +11,11 @@ import star from '../assets/star.png';
 import road from '../assets/road.png';
 
 export const POINTS = [
-  { id: '1', icon: green_flag, top: '80%', left: '12%', caption: 'Старт',       type: 'modal', Game: GameStart },
-  { id: '2', icon: red_flag,   top: '70%', left: '62%', caption: 'Цех №1',      type: 'modal', Game: GameWorkshop },
-  { id: '3', icon: red_flag,   top: '35%', left: '68%', caption: 'Лаборатория', type: 'modal', Game: GameLab },
-  { id: '4', icon: red_flag,   top: '50%', left: '10%', caption: 'Склад',       type: 'page',  path: '/testpage' },
-  { id: '5', icon: star,       top: '0%',  left: '16%', caption: 'Финиш',       type: 'page',  path: '/finish' },
+  { id: '1', icon: green_flag, top: '80%', left: '12%', caption: 'История ОЧАКОВО',       type: 'modal', Game: Eng_game_1 },
+  { id: '2', icon: red_flag,   top: '70%', left: '62%', caption: 'Игра',      type: 'modal', Game: Eng_game_2 },
+  { id: '3', icon: red_flag,   top: '35%', left: '68%', caption: 'Изучение специальностей', type: 'modal', },
+  { id: '4', icon: red_flag,   top: '50%', left: '10%', caption: 'Контрольные вопрос',       type: 'page',  path: '/testpage' },
+  { id: '5', icon: star,       top: '0%',  left: '16%', caption: 'Встреча с HR',       type: 'page',  },
 ];
 
 export const RoadMap = ({ id }) => {
@@ -76,7 +76,6 @@ export const RoadMap = ({ id }) => {
                 onClick={() => handlePointClick(point)}
                 style={{
                   width: '100%',
-                  aspectRatio: '1 / 1',
                   padding: 0,
                   border: 'none',
                   overflow: 'hidden',
@@ -95,11 +94,12 @@ export const RoadMap = ({ id }) => {
 
               <Text
                 style={{
-                  color: colors.textPrimary,
+                  width: '90%',
+                  color: 'black',
                   fontSize: 12,
                   lineHeight: 1.2,
                   textAlign: 'center',
-                  whiteSpace: 'nowrap',
+
                 }}
               >
                 {point.caption}

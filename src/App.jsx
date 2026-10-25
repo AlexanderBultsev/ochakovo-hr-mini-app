@@ -4,7 +4,7 @@ import { View, SplitLayout, SplitCol, ScreenSpinner, Div } from '@vkontakte/vkui
 import { useActiveVkuiLocation } from '@vkontakte/vk-mini-apps-router';
 import loaderGif from './assets/loader_TEST!.gif';
 
-import { Persik, Home, Your_future, Vacancy_choose, RoadMap} from './panels';
+import { Persik, Home, Your_future, Vacancy_choose, RoadMap, TestPage} from './panels';
 import { DEFAULT_VIEW_PANELS } from './routes';
 
 
