@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { colors } from '../theme/colors';
 import '../styles/Main.css';
 import '../styles/typography.css';
+import logopng from '../assets/logo.png'
 
 
 export const Home = ({ id, fetchedUser }) => {
@@ -26,7 +27,7 @@ export const Home = ({ id, fetchedUser }) => {
 
           <Box paddingInline="4xl" paddingBlock="3rem"className='main-top'>
             
-            <img src='.\src\assets\logo.png'></img>
+            <img src={logopng}></img>
             <Box paddingInline="1xl" paddingBlock="5rem"  inlineSize="340px"><Title style={{ color: 'black' }} className='title'>Вливайся в <Title style={{ color: colors.red  }} className='title'>ОЧАКОВО</Title></Title></Box>
 
           </Box>
