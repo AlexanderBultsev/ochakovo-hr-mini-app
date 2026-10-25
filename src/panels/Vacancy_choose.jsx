@@ -19,7 +19,7 @@ export const Vacancy_choose = ({ id }) => {
                 text="Техника, оборудование, инновации"
                 backgroundColor={colors.red}
                 image={icon1}
-                onClick={() => routeNavigator.push('/your_future')} 
+                onClick={() => routeNavigator.push('/roadmap')} 
                 />
 
                 <Vacancy
@@ -27,7 +27,7 @@ export const Vacancy_choose = ({ id }) => {
                 text="Химия, технологии, лаборатория"
                 backgroundColor={colors.green}
                 image={icon2}
-                onClick={() => routeNavigator.push('/your_future')} 
+                onClick={() => routeNavigator.push('/roadmap')} 
                 />
             
 
@@ -36,7 +36,7 @@ export const Vacancy_choose = ({ id }) => {
                 text="Производство, склады, доставка"
                 backgroundColor={colors.light_gray}
                 image={icon3}
-                onClick={() => routeNavigator.push('/your_future')} 
+                onClick={() => routeNavigator.push('/roadmap')} 
                 />
             </Group>
         </Box>

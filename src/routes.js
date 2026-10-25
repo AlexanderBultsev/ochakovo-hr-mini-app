@@ -5,6 +5,7 @@ import {
   createView,
   RoutesConfig,
 } from '@vkontakte/vk-mini-apps-router';
+import { RoadMap } from './panels/RoadMap';
 
 export const DEFAULT_ROOT = 'default_root';
 
@@ -15,6 +16,8 @@ export const DEFAULT_VIEW_PANELS = {
   PERSIK: 'persik',
   YOUR_FUTURE: 'your_future',
   VACANCY_CHOOSE: 'vacancy_choose',
+  ROADMAP: 'roadmap',
+  TESTPAGE: 'testpage'
 };
 
 export const routes = RoutesConfig.create([
@@ -24,6 +27,8 @@ export const routes = RoutesConfig.create([
       createPanel(DEFAULT_VIEW_PANELS.PERSIK, `/${DEFAULT_VIEW_PANELS.PERSIK}`, []),
       createPanel(DEFAULT_VIEW_PANELS.YOUR_FUTURE, `/${DEFAULT_VIEW_PANELS.YOUR_FUTURE}`, []),
       createPanel(DEFAULT_VIEW_PANELS.VACANCY_CHOOSE, `/${DEFAULT_VIEW_PANELS.VACANCY_CHOOSE}`, []),
+      createPanel(DEFAULT_VIEW_PANELS.ROADMAP, `/${DEFAULT_VIEW_PANELS.ROADMAP}`, []),
+      createPanel(DEFAULT_VIEW_PANELS.TESTPAGE, `/${DEFAULT_VIEW_PANELS.TESTPAGE}`, []),
     ]),
   ]),
 ]);
