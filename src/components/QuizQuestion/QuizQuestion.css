@@ -1,0 +1,50 @@
+/* ... базовые стили ... */
+
+.quiz-question__option {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top:10%;
+  color: #000;
+  padding: 16px;
+  background-color: #fff;
+  border: 1.5px solid var(--app-color-brand, #ff0000);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  text-align: left;
+}
+
+.quiz-question__option:hover:not(:disabled) {
+  background-color: #f5f5f5;
+}
+
+/* Выбранный (до проверки) */
+.quiz-question__option--selected {
+  background-color: #ffeaea;
+  border-color: var(--app-color-brand, #ff0000);
+}
+
+/* Правильный ответ (после проверки) */
+.quiz-question__option--correct {
+  background-color: #e5f5e5; /* Светло-зеленый */
+  border-color: #4BB34B;     /* Зеленый */
+  color: #000;
+}
+
+/* Неправильный ответ (после проверки) */
+.quiz-question__option--wrong {
+  background-color: #ffeaea; /* Светло-красный */
+  border-color: #E64646;     /* Красный */
+  color: #000;
+}
+
+/* Отключаем курсор после ответа */
+.quiz-question__option:disabled {
+  cursor: default;
+}
+
+.quiz-question__title{
+    color: #000;
+
+}

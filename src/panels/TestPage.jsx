@@ -1,48 +1,93 @@
-import {Panel, PanelHeader, Header, Group, Box, Text, Placeholder, } from '@vkontakte/vkui';
-import { useRouteNavigator } from '@vkontakte/vk-mini-apps-router';
+import { useState } from 'react';
+import { Panel, PanelHeader, Box, Text, Title, Progress, Button } from '@vkontakte/vkui';
+import { useRouteNavigator,  } from '@vkontakte/vk-mini-apps-router';
 import PropTypes from 'prop-types';
-import { Vacancy } from '../components/Vacancy.jsx';
-import icon1 from '../assets/icon1.png';
-import icon2 from '../assets/icon2.png';
-import icon3 from '../assets/icon3.png';
+import { Quiz } from '../components/Quiz/Quiz';
 import { colors } from '../theme/colors';
+import { QUIZ_QUESTIONS } from '../components/data/quizQuestions.jsx';
+import '../styles/TestPage.css';
 
-export const TestPage = ({ id }) => {
+export function TestPage({ id }) {
   const routeNavigator = useRouteNavigator();
+  const [progress, setProgress] = useState(0);
+  const [currentNumber, setCurrentNumber] = useState(1); 
+  const [result, setResult] = useState(null);
+
+  
+  const handleProgress = (percent, index) => {
+    setProgress(percent);
+    setCurrentNumber(index + 1);
+  };
+
+  const handleFinish = (quizResult) => {
+    setResult(quizResult);
+    setProgress(100);
+  };
+
+  const handleRestart = () => {
+    setResult(null);
+    setProgress(0);
+    setCurrentNumber(1);
+  };
 
   return (
-    <Panel id={id}>
-        <Box paddingInline="12%" paddingBlock="5rem"  >
-            <Group>
-                <Vacancy
-                title="Инженерные специальности"
-                text="Техника, оборудование, инновации"
-                backgroundColor={colors.red}
-                image={icon1}
-                onClick={() => routeNavigator.push('/roadmap')} 
-                />
-
-                <Vacancy
-                title="Профильные специалисты"
-                text="Химия, технологии, лаборатория"
-                backgroundColor={colors.green}
-                image={icon2}
-                onClick={() => routeNavigator.push('/roadmap')} 
-                />
+    <Panel id={id} className="test-page">
+      <Box padding="m">
+        
+       
+        {!result && (
+          <div className="test-page__header">
+            <button 
+              className="test-page__back-btn" 
+              onClick={() => routeNavigator.back()}
+              type="button"
+              aria-label="Назад"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
             
-
-                <Vacancy
-                title="Линейный персонал"
-                text="Производство, склады, доставка"
-                backgroundColor={colors.light_gray}
-                image={icon3}
-                onClick={() => routeNavigator.push('/roadmap')} 
+            <div className="test-page__progress-wrapper">
+              <div className="test-page__progress-track">
+                <div 
+                  className="test-page__progress-fill" 
+                  style={{ width: `${progress}%` }}
                 />
-            </Group>
-        </Box>
+              </div>
+              <Text className="test-page__progress-text">
+                
+                {currentNumber}/{QUIZ_QUESTIONS.length}
+              </Text>
+            </div>
+          </div>
+        )}
+
+        
+        {result ? (
+          <div className="test-page__result">
+            <Title level="2" style={{ textAlign: 'center', color: 'black' }} >
+              Результат
+            </Title>
+            <Text style={{ textAlign: 'center', fontSize: 16, marginTop: 8 }} className='text'>
+              Правильных ответов: {result.correct} из {result.total}
+            </Text>
+            <div className="test-page__actions">
+              <Button size="l" stretched mode="secondary" onClick={handleRestart}>
+                Пройти заново
+              </Button>
+              <Button size="l" stretched onClick={() => routeNavigator.back()}>
+                Назад
+              </Button>
+            </div>
+          </div>
+        ) : (
+          <Quiz onProgress={handleProgress} onFinish={handleFinish} />
+        )}
+      </Box>
     </Panel>
   );
-};
+}
 
 TestPage.propTypes = {
   id: PropTypes.string.isRequired,

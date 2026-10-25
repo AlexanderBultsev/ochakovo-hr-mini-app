@@ -3,7 +3,7 @@ import bridge from '@vkontakte/vk-bridge';
 import { View, SplitLayout, SplitCol, ScreenSpinner, Div } from '@vkontakte/vkui';
 import { useActiveVkuiLocation } from '@vkontakte/vk-mini-apps-router';
 
-import { Persik, Home, Your_future, Vacancy_choose, RoadMap, TestPage} from './panels';
+import { Persik, Home, Your_future, Vacancy_choose, RoadMap, TestPage, Finish} from './panels';
 import { DEFAULT_VIEW_PANELS } from './routes';
 import { LoaderSVG } from './components/LoaderSVG';
 
@@ -52,6 +52,7 @@ useEffect(() => {
           <Vacancy_choose id="vacancy_choose" />
           <RoadMap id="roadmap" />
           <TestPage id="testpage" />
+          <Finish id="finish" />
         </View>
       </SplitCol>
       {popout}

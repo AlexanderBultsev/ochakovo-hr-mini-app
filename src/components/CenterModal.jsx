@@ -1,4 +1,4 @@
-import './CenterModal.css';
+import '../styles/CenterModal.css';
 
 export function CenterModal({ open, title, onClose, children }) {
   if (!open) return null;

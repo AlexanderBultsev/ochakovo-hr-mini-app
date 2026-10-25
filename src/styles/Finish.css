@@ -1,0 +1,29 @@
+.inp{
+    background-color: aliceblue;
+    
+}
+
+.my-custom-select {
+  --vkui--color_text_primary: #c98989; 
+  --vkui--color_background_content: #f0f0f0; 
+}
+
+.title{
+    font-size: 48px;
+    line-height: 100%;
+}
+.text{
+    color:#626262;
+    margin-top: 2%;
+}
+
+.test-page__back-btn {
+  background: none;
+  margin: 2%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #000;
+  display: flex;
+  align-items: center;
+}

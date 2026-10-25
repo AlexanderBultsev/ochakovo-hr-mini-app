@@ -1,0 +1,40 @@
+.video-info {
+  display: flex;
+  flex-direction: column;
+    flex: 1 1 auto;            
+  min-height: 0;  
+  gap: 12px;
+  overflow-y: auto;
+  min-height: 0;              
+}
+.video-info__video {
+  width: 100%;
+  max-height: 40vh;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #000;
+  display: block;
+  flex-shrink: 0;          
+}
+
+.video-info__quote {
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-style: italic;
+  color: #555;
+  flex-shrink: 0;
+}
+
+.video-info__title {
+  margin: 0;
+  color: #000;
+  flex-shrink: 0;
+}
+
+.video-info__text {
+  color: #444;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+

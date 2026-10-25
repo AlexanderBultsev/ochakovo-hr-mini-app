@@ -5,5 +5,6 @@ export { Persik } from './Persik';
 export { Home } from './Home';
 export { Vacancy_choose } from './Vacancy_choose';
 export { RoadMap } from './RoadMap'
-export { TestPage} from './TestPage'
+export { TestPage } from './TestPage'
+export { Finish } from './Finish'
 

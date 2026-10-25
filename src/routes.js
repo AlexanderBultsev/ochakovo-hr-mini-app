@@ -17,7 +17,8 @@ export const DEFAULT_VIEW_PANELS = {
   YOUR_FUTURE: 'your_future',
   VACANCY_CHOOSE: 'vacancy_choose',
   ROADMAP: 'roadmap',
-  TESTPAGE: 'testpage'
+  TESTPAGE: 'testpage',
+  FINISH: 'finish',
 };
 
 export const routes = RoutesConfig.create([
@@ -29,6 +30,7 @@ export const routes = RoutesConfig.create([
       createPanel(DEFAULT_VIEW_PANELS.VACANCY_CHOOSE, `/${DEFAULT_VIEW_PANELS.VACANCY_CHOOSE}`, []),
       createPanel(DEFAULT_VIEW_PANELS.ROADMAP, `/${DEFAULT_VIEW_PANELS.ROADMAP}`, []),
       createPanel(DEFAULT_VIEW_PANELS.TESTPAGE, `/${DEFAULT_VIEW_PANELS.TESTPAGE}`, []),
+      createPanel(DEFAULT_VIEW_PANELS.FINISH, `/${DEFAULT_VIEW_PANELS.FINISH}`, []),
     ]),
   ]),
 ]);

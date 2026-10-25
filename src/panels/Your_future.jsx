@@ -3,6 +3,7 @@ import { useRouteNavigator } from '@vkontakte/vk-mini-apps-router';
 import PropTypes from 'prop-types';
 import road_img1 from '../assets/road_img1.png';
 import { colors } from '../theme/colors';
+import '../styles/typography.css';
 
 export const Your_future = ({ id }) => {
   const routeNavigator = useRouteNavigator();
@@ -11,7 +12,7 @@ export const Your_future = ({ id }) => {
     <Panel id={id}>
       <Placeholder>
         <img width={350} src={road_img1} alt="road_img1" />
-        <Box paddingInline="1xl" paddingBlock="2rem"  inlineSize="140px"><Title style={{ color: 'black' }}>Вливайся в <Title style={{ color: colors.red  }}>ОЧАКОВО</Title></Title></Box>
+        <Box paddingInline="1xl" paddingBlock="2rem"  inlineSize="240px"><Title style={{ color: 'black' }} className='title'>Твое будущее </Title></Box>
         <Box inlineSize="240px" ><Text align='start'>Пройди короткий путь и узнай, какая работа в Очаково подходит именно тебе</Text></Box>
         <Box  paddingBlock="2.5rem">
           <Button stretched size="l" appearance='accent' mode='primary' onClick={() => routeNavigator.push('/vacancy_choose')}>

@@ -1,0 +1,15 @@
+.quiz {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.quiz__actions {
+  display: flex;
+  margin-top: 8%;
+  gap: 8px;
+}
+
+.quiz__actions > * {
+  flex: 1;
+}

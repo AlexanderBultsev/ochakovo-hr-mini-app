@@ -1,0 +1,68 @@
+.test-page {
+  
+  margin-top: 8%;
+  background-color: #fff;
+}
+
+.test-page__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.test-page__back-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #000;
+  display: flex;
+  align-items: center;
+}
+
+.test-page__progress-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.test-page__progress-track {
+  flex: 1;
+  height: 4px;
+  background-color: #e0e0e0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.test-page__progress-fill {
+  height: 100%;
+  background-color: var(--app-color-brand, #ff0000);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.test-page__progress-text {
+  font-size: 12px;
+  font-weight: 600;
+  color: #000;
+  white-space: nowrap;
+}
+
+.test-page__result {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.test-page__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.test-page__actions > * {
+  flex: 1;
+}

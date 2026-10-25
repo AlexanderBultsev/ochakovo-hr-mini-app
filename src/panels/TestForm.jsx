@@ -28,14 +28,14 @@ export const TestForm = ({ id }) => {
     setResult(null);
     setError(null);
 
-    // Создаем контроллер для возможности отмены запроса по таймауту
+    
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 секунд на ответ
 
     try {
       let launchParams = '';
       try {
-        // Оборачиваем вызов в Promise.race, чтобы не ждать вечно
+        
         launchParams = await Promise.race([
           bridge.send('VKWebAppGetLaunchParams'),
           new Promise((_, reject) => setTimeout(() => reject(new Error('Bridge timeout')), 1000))
@@ -59,13 +59,13 @@ export const TestForm = ({ id }) => {
       const response = await fetch('https://functions.yandexcloud.net/d4eehp3e5kldelpc86kh', {
         method: 'POST',
         headers: { 
-          'Content-Type': 'text/plain' // Обход preflight-запроса
+          'Content-Type': 'text/plain' 
         },
         body: JSON.stringify(payload),
-        signal: controller.signal // Привязываем таймаут
+        signal: controller.signal 
       });
 
-      clearTimeout(timeoutId); // Успели получить ответ, отменяем таймер
+      clearTimeout(timeoutId); 
       console.log('Получен ответ от сервера, статус:', response.status);
 
       const data = await response.json();
