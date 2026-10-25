@@ -2,16 +2,15 @@ import { useState, useEffect } from 'react';
 import bridge from '@vkontakte/vk-bridge';
 import { View, SplitLayout, SplitCol, ScreenSpinner, Div } from '@vkontakte/vkui';
 import { useActiveVkuiLocation } from '@vkontakte/vk-mini-apps-router';
-import loaderGif from './assets/loader_TEST!.gif';
 
 import { Persik, Home, Your_future, Vacancy_choose, RoadMap, TestPage} from './panels';
 import { DEFAULT_VIEW_PANELS } from './routes';
-
+import { LoaderSVG } from './components/LoaderSVG';
 
 export const App = () => {
   const { panel: activePanel = DEFAULT_VIEW_PANELS.HOME } = useActiveVkuiLocation();
   const [fetchedUser, setUser] = useState();
-  const [popout, setPopout] = useState(<ScreenSpinner state="custom" noColor={true} customIcon={<img src={loaderGif} alt="none" style={{ width: 90}} />} />);
+  const [popout, setPopout] = useState(<ScreenSpinner state="custom" mode="shadow" customIcon={<LoaderSVG />} />);
 
 useEffect(() => {
     let isMounted = true;

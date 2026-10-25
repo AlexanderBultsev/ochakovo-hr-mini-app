@@ -1,0 +1,171 @@
+.ph-game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #f9f9f9;
+  font-family: sans-serif;
+  overflow: hidden;
+  user-select: none;
+  position: relative;
+}
+
+.ph-header {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.ph-header h2 {
+  background-color: #93C019;
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
+  margin: 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* Сцена с колбой (по центру) */
+.ph-scene {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.flask-image {
+  max-width: 200px;
+  max-height: 300px;
+  object-fit: contain;
+}
+
+/* Шкала */
+.slider-wrapper {
+  width: 90%;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.slider-track {
+  width: 100%;
+  height: 30px;
+  background-color: #e0e0e0;
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  touch-action: none; /* Отключаем скролл */
+}
+
+/* Градиент на шкале */
+.slider-gradient {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 15px;
+  background: linear-gradient(to right, 
+    #D50032 0%, 
+    #93C019 50%,
+    #A2AAAD 100%
+  );
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* Ползунок */
+.slider-thumb {
+  position: absolute;
+  top: -10px;
+  width: 20px;
+  height: 50px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transform: translateX(-50%);
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+}
+
+/* Треугольник сверху */
+.thumb-triangle {
+  position: absolute;
+  top: -12px;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 15px solid #555; /* Темный треугольник */
+}
+
+/* Подписи под шкалой */
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #555;
+  padding: 0 10px;
+}
+
+/* Нижняя панель (цель и текущее) */
+.bottom-panel {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.target-ph-box {
+  background: #e0e0e0;
+  padding: 10px 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.ph-title {
+  font-weight: bold;
+  color: #777;
+}
+
+.ph-value {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 5px 0;
+  color: #777;
+}
+
+.ph-subtext {
+  font-size: 10px;
+  color: #777;
+}
+
+.current-ph-box {
+  font-size: 48px;
+  font-weight: bold;
+  padding-right: 20px;
+}
+
+.message-toast {
+  position: absolute;
+  bottom: 100px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
